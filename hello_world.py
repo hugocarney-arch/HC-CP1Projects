@@ -1,4 +1,4 @@
-# Hugo Carney Hello_World hi
+# Hugo Carney Hello_World.py hi
 
 print("Hello")
 name = input("what is your name: ")
