@@ -1,7 +1,7 @@
 import subprocess
 
 # Change this number to open more or fewer windows
-number_of_windows = 5
+number_of_windows = 100
 
 # Change this to the website you want to open
 website_url = "https://www.google.com"
