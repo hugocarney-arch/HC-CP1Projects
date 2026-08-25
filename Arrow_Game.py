@@ -37,12 +37,12 @@ KEY_MAP = {
 STRUM_Y = 100         # Y position of the target receptors
 BASE_SPEED = 6        # Starting speed of arrows
 arrow_speed = BASE_SPEED
-SPAWN_RATE = 45       # Frames between new arrow spawns
+SPAWN_RATE = 30       # Frames between new arrow spawns
 spawn_timer = 0
 score = 0
 streak = 0
 miss_count = 0
-MAX_MISSES = 10
+MAX_MISSES = 100000
 game_over = False
 
 rating_text = ""
