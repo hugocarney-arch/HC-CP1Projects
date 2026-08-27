@@ -12,7 +12,7 @@ BLOCK_TYPES = {
     '4': color.rgb(241, 196, 15)   # Gold (Yellow)
 }
 
-current_block_type = '1'
+current_block_type = '2'
 
 # Handle keyboard inputs for choosing blocks or exiting
 def input(key):
@@ -25,15 +25,15 @@ def input(key):
 
 # Create a Voxel (Block) class
 class Voxel(Button):
-    def __init__(self, position=(0,0,0), block_color=color.white):
+    def __init__(self, position=(0,0,0), block_color=color.brown):
         super().__init__(
             parent=scene,
             position=position,
             model='cube',
             origin_y=0.5,
-            texture='white_cube', # Built-in texture
+            texture='blue_cube', # Built-in texture
             color=block_color,
-            highlight_color=color.lime
+            highlight_color=color.dark_gray
         )
 
     # Handle placing and breaking blocks
@@ -48,9 +48,9 @@ class Voxel(Button):
                 destroy(self)
 
 # Generate a flat floor grid (15x15) to start building on
-for z in range(15):
-    for x in range(15):
-        voxel = Voxel(position=(x, 0, z), block_color=BLOCK_TYPES['1'])
+for z in range(20):
+    for x in range(20):
+        voxel = Voxel(position=(x, 0, z), block_color=BLOCK_TYPES['2'])
 
 # Add the player (First Person Controls)
 player = FirstPersonController()
