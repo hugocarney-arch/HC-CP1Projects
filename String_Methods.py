@@ -1,4 +1,4 @@
-# H.C String Methods Notes
+"""# H.C String Methods Notes
 
 sentence = "The quick brown fox jumps over the lazy dog"
 
@@ -21,6 +21,7 @@ first_fixed = " ".join(first_seperated)
 full_name = first_fixed.title() + " " + last_fixed.tiltle()
 print("Hello " + full_name.title())
 
+# Showing What The Sentence Has Checking Is All Is Upper Case isupper, And If It Is All Numbers isnumeric, And If It Is All Characters isalpha
 print(full_name.isalpha)
 print(full_name.isnumeric)
 print(full_name.isupper)
@@ -30,3 +31,15 @@ print(sentence.lower())
 print(sentence.upper())
 print(sentence.capitalize())
 print(sentence.title())
+
+
+# Formatted string
+print(f"Hello {first_fixed.title} {last_fixed} welcome to my program! ")"""
+
+# Findin the asky or numeric value of the letter then adding two to its numeric value to make a new letter
+letter = input("Give me a letter: ")
+letter = letter[0].lower()
+number_value = ord(letter)
+number_value += 2
+new_letter = chr(number_value)
+print(f"Your letter was {letter} now it is {new_letter}")
