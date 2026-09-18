@@ -17,5 +17,5 @@ total_with_tax = discounted_total + (discounted_total * tax_rate)
 print("Hello, " + pirate_name + "! Here's your order summary:")
 print("Snack: " + snack_name) # I fixed bug: snack_name had random capitals fixed name of variable snack name
 print("Price per snack: " + str(price) + " credits")
-print("Discounted Total before tax: " + str(discounted_total)) # I fixed bug: it said price but i should have said total
+print("Total before tax: " + str(total)) # I fixed bug: it said price but i should have said total
 print("Total with tax: " + str(round(total_with_tax, 2)) + " credits") # I fixed bug: no parenthesis so I added paranthesis
