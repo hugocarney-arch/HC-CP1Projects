@@ -16,7 +16,8 @@ full_crew = crew_members + 2
 
 credit_amount = random.randint(500, 5000)
 
-units_after_initial_pay = credit_amount - (crew_members * 3)
+iron_lotus_spending = (crew_members * 3)
+units_after_initial_pay = credit_amount - iron_lotus_spending
 
 yondu_cut = units_after_initial_pay * 0.13
 rounded_yondu_cut = round(yondu_cut, 2)
@@ -35,8 +36,16 @@ quill_remainder = yondu_remainder - rounded_quill_cut
 crew_cut = quill_remainder / full_crew
 rounded_crew_cut = round(crew_cut, 2)
 
+quill_full_share = rounded_crew_cut + rounded_quill_cut
+yondu_full_share = rounded_crew_cut + rounded_yondu_cut
+rounded_quill_full_share =
+rounded_yondu_full_share = 
+
 
 print(f"The whole team stole {credit_amount} credits")
-print(f"Yondu's cut: {rounded_yondu_cut} credits")
-print(f"Quill's cut: {rounded_quill_cut} credits")
+print(f"You gave your team {iron_lotus_spending} credits of the stolen credits to hit the Iron Lotus Bar ")
+print(f"Yondu's secret cut: {rounded_yondu_cut} credits")
+print(f"Quill's secret cut: {rounded_quill_cut} credits")
 print(f"Crew's cut: {rounded_crew_cut} credits")
+print(f"Quill's full share: {quill_full_share}")
+print(f"Yondu's full share: {yondu_full_share}")
