@@ -38,8 +38,8 @@ rounded_crew_cut = round(crew_cut, 2)
 
 quill_full_share = rounded_crew_cut + rounded_quill_cut
 yondu_full_share = rounded_crew_cut + rounded_yondu_cut
-rounded_quill_full_share =
-rounded_yondu_full_share = 
+rounded_quill_full_share = round(quill_full_share, 2)
+rounded_yondu_full_share = round(yondu_full_share, 2)
 
 
 print(f"The whole team stole {credit_amount} credits")
@@ -47,5 +47,5 @@ print(f"You gave your team {iron_lotus_spending} credits of the stolen credits t
 print(f"Yondu's secret cut: {rounded_yondu_cut} credits")
 print(f"Quill's secret cut: {rounded_quill_cut} credits")
 print(f"Crew's cut: {rounded_crew_cut} credits")
-print(f"Quill's full share: {quill_full_share}")
-print(f"Yondu's full share: {yondu_full_share}")
+print(f"Quill's full share: {rounded_quill_full_share}")
+print(f"Yondu's full share: {rounded_yondu_full_share}")
