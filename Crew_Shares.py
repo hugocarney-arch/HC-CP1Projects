@@ -5,12 +5,12 @@ import random
 while True:
    try:
        crew_members = int(input("Enter the number of crew members: "))
-       if crew_members >= 1:
+       if crew_members >= 1 and crew_members <=166:
            break
        else:
-           print("Please enter a positive integer.")
+           print("Please enter a positive integer below 166")
    except ValueError:
-       print("Invalid input. Please enter an integer.")
+       print("Invalid input. Please enter an integer below 166")
 
 full_crew = crew_members + 2
 
