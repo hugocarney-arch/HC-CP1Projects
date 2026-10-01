@@ -1,7 +1,12 @@
 import subprocess
 
 # Change this number to open more or fewer windows
-number_of_windows = 50
+while True:
+  number_of_windows = int(input("How many windows do you want to open: "))
+  if number_of_windows >= 0:
+    break
+  else:
+    print("Not a real number please try aigain")
 
 # Change this to the website you want to open
 website_url = "https://www.google.com"
