@@ -5,7 +5,8 @@ shopping_list = input("Enter your initial shopping list items separated by comma
 shopping_list = shopping_list.split(",")
 shopping_list = [item.strip() for item in shopping_list]
 print(f"Initial shopping list:")
-print(*shopping_list)
+for item in shopping_list:
+                   print(f"- {item}")
 
 
 def add_item(item):
