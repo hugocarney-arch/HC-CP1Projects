@@ -1,22 +1,8 @@
 # HC Multiplication Table 1st
+import time
 
-
-for i in range(1, 13):  
-    for x in range(1, 13):  
-        
+for i in range(1, 31):  
+    for x in range(1, 31):  
         print(f"{i * x:4}", end="")
+        time.sleep(0.001)
     print()
-
-while True:
-    number_1 = int(input("What is the second number you would like to multiply 1 - 12: "))
-    if number_1 >= 1 and number_1 <= 12:
-        break
-    else:
-        print("Not a number in 1 - 12")
-
-while True:
-    number_2 = int(input("What is the first number you would like to multiply 1 - 12: "))
-    if number_2 >= 1 and number_2 <= 12:
-        break
-    else:
-        print("Not a number in 1 - 12")
