@@ -1,6 +1,5 @@
 # HC 1st Factorial Calculator
 import math
-factors = []
 
 while True:
     try:
@@ -12,10 +11,12 @@ while True:
     else: 
         print("Not a valid number please do a positive number No decimals")
 
-factorial_range = range(factorial_number, 1)
-print(factorial_range)
+factorial_range = range(factorial_number + 1) 
 
-factor_numbers = map(int,factorial_range)
-print(list(*factor_numbers))
+factor_numbers = list(map(math.factorial, factorial_range))
 
-print(math.factorial(factorial_number))
+print(factor_numbers)
+
+full_factorial_total = factor_numbers[-1]
+
+print(full_factorial_total)
