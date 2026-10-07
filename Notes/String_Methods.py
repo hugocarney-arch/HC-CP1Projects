@@ -1,4 +1,4 @@
-"""# H.C String Methods Notes
+# H.C String Methods Notes
 
 sentence = "The quick brown fox jumps over the lazy dog"
 
@@ -34,7 +34,7 @@ print(sentence.title())
 
 
 # Formatted string
-print(f"Hello {first_fixed.title} {last_fixed} welcome to my program! ")"""
+print(f"Hello {first_fixed.title} {last_fixed} welcome to my program! ")
 
 # Findin the asky or numeric value of the letter then adding two to its numeric value to make a new letter
 letter = input("Give me a letter: ")
