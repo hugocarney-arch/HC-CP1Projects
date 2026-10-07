@@ -11,7 +11,7 @@ while True:
     else: 
         print("Not a valid number please do a positive number No decimals")
 
-factorial_range = range(factorial_number + 1) 
+factorial_range = range(1, factorial_number + 1) 
 
 factor_numbers = list(map(math.factorial, factorial_range))
 
