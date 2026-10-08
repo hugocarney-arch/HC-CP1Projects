@@ -15,7 +15,7 @@ while True:
 
     print(" ")
 
-    print("Factors In Factorial:")
+    print("Factorial Equation:")
     factor_numbers = map(int,factorial_range)
 
     for factor in factor_numbers:
