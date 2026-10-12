@@ -15,7 +15,7 @@ while True:
             print("Invalid choice. Please enter 'picture' or 'door'")
 
 while True:
-    combo_attempt = input("Try the combination lock if you get it wrong it will give you a hint : ")
+    combo_attempt = input("Try the combination lock if you get it wrong it will give you a hint: ")
     if combo_attempt == passcode:
         print("The lock opens! You have escaped the room")
         break

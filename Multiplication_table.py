@@ -3,7 +3,7 @@ while True:
     import time
     while True:
         try:
-            row = int(input("Enter how big of a multiplication table you want: "))
+            row = int(input("Enter how big of a multiplication table you want 1 - 30: "))
             if row <= 0:
                 print("Please enter a positive integer.")
                 continue
