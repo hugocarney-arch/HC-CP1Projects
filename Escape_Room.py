@@ -1,6 +1,6 @@
 # HC Escape Room 1st
 
-passcode = "1901"
+passcode = 1901
 
 print("You wake up in a room that has a 4 digit combination lock on the door and a small picture on a table")
 
@@ -24,17 +24,19 @@ while True:
         break
 
 while True:
-    action3 = input("would you like to try to open the lock again if you get it wrong it will give you a hint (yes/no): ")
-    if action3 == "yes":
-        combination = int(input("Enter the combination for the lock: "))
-        if combination == passcode:
-            print("The lock opens! You have escaped the room")
-            break
-        elif combination > passcode:
-            print("Guess is too high of a year, try again")
-        elif combination < passcode:
-            print("Guess is too low of a year, try again")
-        elif action3 == "no":
-            print("You decide not to try the lock again and remain in the room")
-        else:
-            print("Invalid choice. Please enter 'yes' or 'no'")
+        action3 = input("would you like to try to open the lock again if you get it wrong it will give you a hint (yes/no): ")
+        if action3 == "no":
+                print("You decide not to try the lock again and remain in the room")
+                continue
+        if action3 == "yes":
+            combination = int(input("Enter the combination for the lock: "))
+            if combination == passcode:
+                print("The lock opens! You have escaped the room")
+                break
+            elif combination > passcode:
+                print("Guess is too high of a year, try again")
+            elif combination < passcode:
+                print("Guess is too low of a year, try again")
+            
+            else:
+                print("Invalid choice. Please enter 'yes' or 'no'")
