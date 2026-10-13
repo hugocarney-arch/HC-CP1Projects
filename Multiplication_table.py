@@ -7,9 +7,9 @@ while True:
             if row <= 0:
                 print("Please enter a positive integer.")
                 continue
-            elif row > 30:
+            elif row > 100:
                 print("Please enter a number less than or equal to 30")
-                continue
+                break
             break
         except ValueError:
             print("Invalid input. Please enter a positive integer.")
@@ -17,5 +17,5 @@ while True:
     for i in range(1, row + 1):  
         for x in range(1, row + 1):  
             print(f"{i * x:4}", end=" ")
-            time.sleep(.001)
+            time.sleep(.000001)
         print()

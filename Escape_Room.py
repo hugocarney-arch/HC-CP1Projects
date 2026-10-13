@@ -5,7 +5,7 @@ passcode = 1901
 print("You wake up in a room that has a 4 digit combination lock on the door and a small picture on a table")
 
 while True:
-        action = input("Do you want to look at the picture or try to open the door (picture/door): ")
+        action = input("Do you want to look at the picture or try to open the door  P.S if you select door you will not be allowed to stop trying the passcode until you enter the correct combination (picture/door): ")
         if action == "picture":
             print("You look at the picture and it shows a man becoming president also in the bottom right corner there is a year scratched out next to a quote that says 'Speak softly and carry a big stick; you will go far.'")
         elif action == "door":
@@ -15,28 +15,75 @@ while True:
             print("Invalid choice. Please enter 'picture' or 'door'")
 
 while True:
-    combo_attempt = input("Try the combination lock if you get it wrong it will give you a hint: ")
-    if combo_attempt == passcode:
+    while True:
+            try:
+                combo_attempt1 = int(input("Type the combination lock if you get it wrong it will give you a hint: "))
+                break
+            except ValueError:
+                print("Invalid Input combo Has to be a number")
+    if combo_attempt1 == passcode:
         print("The lock opens! You have escaped the room")
         break
     else:
-        print("Incorrect combination. The lock remains closed hint: the guy on the picture is teddy rosevelt becoming president")
+        print("Incorrect combination. The lock reamins closed hint: The combo is four digits try again")
         break
 
 while True:
-        action3 = input("would you like to try to open the lock again if you get it wrong it will give you a hint (yes/no): ")
-        if action3 == "no":
-                print("You decide not to try the lock again and remain in the room")
-                continue
-        if action3 == "yes":
-            combination = int(input("Enter the combination for the lock: "))
-            if combination == passcode:
-                print("The lock opens! You have escaped the room")
+    while True:
+            try:
+                combo_attempt2 = int(input("Type the combination lock if you get it wrong it will give you a hint: "))
                 break
-            elif combination > passcode:
-                print("Guess is too high of a year, try again")
-            elif combination < passcode:
-                print("Guess is too low of a year, try again")
-            
-            else:
-                print("Invalid choice. Please enter 'yes' or 'no'")
+            except ValueError:
+                print("Invalid Input combo Has to be a number")
+    if combo_attempt2 == passcode:
+        print("The lock opens! You have escaped the room")
+        break
+    else:
+        print("Incorrect combination. The lock remains closed hint: The lock remains closed hint: the guy on the picture is teddy rosevelt becoming president try again")
+        break
+
+while True:
+    while True:
+            try:
+                combo_attempt3 = int(input("Type the combination lock if you get it wrong it will give you a hint: "))
+                break
+            except ValueError:
+                print("Invalid Input combo Has to be a number")
+    if combo_attempt3 == passcode:
+        print("The lock opens! You have escaped the room")
+        break
+    else:
+        print("Incorrect combination. The lock remains closed hint: This happened around the start of the the nineteen hundreds try again")
+        break
+
+while True:
+    while True:
+            try:
+                combo_attempt4 = int(input("Type the combination lock if you get it wrong it will give you a hint: "))
+                break
+            except ValueError:
+                print("Invalid Input combo Has to be a number")
+    if combo_attempt4 == passcode:
+        print("The lock opens! You have escaped the room")
+        break
+    else:
+        print("Incorrect combination. The lock remains closed hint: The code is the year teddy rosevelt became president")
+        break
+
+while True:
+        while True:
+            try:
+                combo_attempt5 = int(input("Type the combination lock if you get it wrong it will give you a hint: "))
+                break
+            except ValueError:
+                print("Invalid Input combo Has to be a number")
+
+        if combo_attempt5 == passcode:
+            print("The lock opens! You have escaped the room")
+            break
+        elif combo_attempt5 > passcode:
+            print("Guess is too high of a year, try again")
+        elif combo_attempt5 < passcode:
+            print("Guess is too low of a year, try again")
+        else:
+            print("Invalid choice. Please enter 'yes' or 'no'")
