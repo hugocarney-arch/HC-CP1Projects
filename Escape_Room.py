@@ -5,9 +5,9 @@ passcode = 1901
 print("You wake up in a room that has a 4 digit combination lock on the door and a small picture on a table")
 
 while True:
-        action = input("Do you want to look at the picture or try to open the door  P.S if you select door you will not be allowed to stop trying the passcode until you enter the correct combination (picture/door): ")
-        if action == "picture":
-            print("You look at the picture and it shows a man becoming president also in the bottom right corner there is a year scratched out next to a quote that says 'Speak softly and carry a big stick; you will go far.'")
+        action = input("Do you want to look at the picture or try to open the door  P.S if you select door you will not be allowed to stop trying the passcode until you enter the correct combination (pic/door): ")
+        if action == "pic":
+            print("You look at the picture and it shows a man becoming president also in the bottom right corner there is a year scratched out next to a quote that says 'Speak softly and carry a big stick; you will go far.")
         elif action == "door":
             print("You try to open the door, but it is locked so you try the combination lock on the door")
             break
