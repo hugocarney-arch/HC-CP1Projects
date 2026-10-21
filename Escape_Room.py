@@ -1,4 +1,5 @@
 # HC Escape Room 1st
+import sys
 
 passcode = 1901
 
@@ -12,78 +13,37 @@ while True:
             print("You try to open the door, but it is locked so you try the combination lock on the door")
             break
         else:
-            print("Invalid choice. Please enter 'picture' or 'door'")
+            print("Invalid choice. Please enter 'pic' or 'door'")
+
+hints = [
+    "The combo is four digits",
+    "The guy on the picture is Teddy Roosevelt becoming president",
+    "This happened around the start of the nineteen hundreds",
+    "The code is the year Teddy Roosevelt became president"
+]
+
+attempt = 0
 
 while True:
-    while True:
-            try:
-                combo_attempt1 = int(input("Type the combination lock if you get it wrong it will give you a hint: "))
-                break
-            except ValueError:
-                print("Invalid Input combo Has to be a number")
-    if combo_attempt1 == passcode:
-        print("The lock opens! You have escaped the room")
-        break
+    try:
+        combo_attempt = int(input("Type the combination lock if you get it wrong it will give you a hint: "))
+    except ValueError:
+        print("Invalid Input. Combo has to be a number.")
+        continue 
+
+    if combo_attempt == passcode:
+        print("The lock opens! You have escaped the room.")
+        sys.exit()
     else:
-        print("Incorrect combination The lock reamins closed. hint: The combo is four digits try again")
-        break
-
-while True:
-    while True:
-            try:
-                combo_attempt2 = int(input("Type the combination lock if you get it wrong it will give you a hint: "))
-                break
-            except ValueError:
-                print("Invalid Input combo Has to be a number")
-    if combo_attempt2 == passcode:
-        print("The lock opens! You have escaped the room")
-        break
-    else:
-        print("Incorrect combination The lock remains closed. hint: the guy on the picture is teddy rosevelt becoming president try again")
-        break
-
-while True:
-    while True:
-            try:
-                combo_attempt3 = int(input("Type the combination lock if you get it wrong it will give you a hint: "))
-                break
-            except ValueError:
-                print("Invalid Input combo Has to be a number")
-    if combo_attempt3 == passcode:
-        print("The lock opens! You have escaped the room")
-        break
-    else:
-        print("Incorrect combination The lock remains closed. hint: This happened around the start of the the nineteen hundreds try again")
-        break
-
-while True:
-    while True:
-            try:
-                combo_attempt4 = int(input("Type the combination lock if you get it wrong it will give you a hint: "))
-                break
-            except ValueError:
-                print("Invalid Input combo Has to be a number")
-    if combo_attempt4 == passcode:
-        print("The lock opens! You have escaped the room")
-        break
-    else:
-        print("Incorrect combination The lock remains closed. hint: The code is the year teddy rosevelt became president")
-        break
-
-while True:
-        while True:
-            try:
-                combo_attempt5 = int(input("Type the combination lock if you get it wrong it will give you a hint: "))
-                break
-            except ValueError:
-                print("Invalid Input combo Has to be a number")
-
-        if combo_attempt5 == passcode:
-            print("The lock opens! You have escaped the room")
-            break
-        elif combo_attempt5 > passcode:
-            print("Guess is too high of a year, try again")
-        elif combo_attempt5 < passcode:
-            print("Guess is too low of a year, try again")
+        print("Incorrect combination. The lock remains closed.")
+        
+        if attempt < len(hints):
+            print(f"Hint: {hints[attempt]} try again")
+        
         else:
-            print("Invalid choice. Please enter 'yes' or 'no'")
+            if combo_attempt > passcode:
+                print("Guess is too high of a year, try again")
+            elif combo_attempt < passcode:
+                print("Guess is too low of a year, try again")
+        
+        attempt += 1
