@@ -37,8 +37,9 @@ for score in scores:
     # Got rid of total because it was resetting total to zero. Logic Error
     total = total + score
 
-average = total / rounds
-print("Your average guesses per round was " + str(average))
+average = (total / rounds)
+rounded_average = round(average, 2)
+print("Your average guesses per round was " + str(rounded_average))
 
 best_round = scores[0]
 for i in range(0, rounds): # Had a minus one which took away from the actual number of rounds and started at one when index starts at zero so I replaced it with 0 to rounds. Logic Error
