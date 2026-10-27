@@ -65,4 +65,4 @@ else:
     print("Some how you broke the system I guess your password is infinitely strong or incredibly horrible either way it will never be guessed")
 
 if len(password_input) > 10:
-    print("Password May Be Too Long And Hard To Rember")
+    print("Password May Be Too Long And Hard To Remeber")
