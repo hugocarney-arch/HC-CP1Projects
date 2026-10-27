@@ -50,13 +50,13 @@ if points == 0:
     print("Password Strength: Weak")
 
 elif points == 1:
-    print("Password Strength: Strong")
+    print("Password Strength: Semi-Weak")
 
 elif points == 2 or points == 3:
     print("Password Strength: Medium")
 
 elif points == 4:
-    print("Password Strength: Strong")
+    print("Password Strength: Semi-Strong")
 
 elif points == 5:
     print("Password Strength: Very Strong")
