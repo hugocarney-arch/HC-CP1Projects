@@ -1,12 +1,12 @@
 # Caesar Cipher HC 1st
-# Caesar Cipher HC 1st
+
 alphabet = [
     "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m",
     "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"
 ]
 
 def encode(text, shift):
-    """Encodes the text by shifting letters forward, preserving case."""
+    """Encodes the text by shifting letters forward, preserving case"""
     shifted_alphabet = [alphabet[(i + shift) % 26] for i in range(26)]
     cipher_dict = dict(zip(alphabet, shifted_alphabet))
     
@@ -23,11 +23,11 @@ def encode(text, shift):
     return "".join(result_chars)
 
 def decode(text, shift):
-    """Decodes the text by reusing encode logic with a negative shift."""
+    """Decodes the text by reusing encode logic with a negative shift"""
     return encode(text, -shift)
 
 def caesar_cipher():
-    """Main program flow to handle user input and call the correct function."""
+    """"Uses Their choice to either encrypt or decrypt the text"""
     # This is the part where the user gets to choose if they want to encode or decode
     while True:
         mode = input("Choose mode (encrypt/decrypt): ").strip().lower()
@@ -46,7 +46,7 @@ def caesar_cipher():
     # Gets what they want to decode or encode (removed .lower() to keep original text)
     text = input(f"Enter text to {mode}: ")
 
-    # Calls the right function based on the chosen mode
+    # Calls the right function based on the mode
     if mode == "encrypt":
         result_text = encode(text, shift)
     else:
