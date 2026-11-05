@@ -16,22 +16,22 @@ while True:
             except ValueError:
                 print("Invalid Input shift value must be a whole number")
 
-text = input(f"What word do you want to {mode}:")
+text = input(f"What word do you want to {mode}: ")
 
 def encode(shift):
-        """It first makes a alphebet with all the letters in alphebet to that is shifted with the shift number then it makes it into a new dictionary thata lines up every letter in alphetbet with its match that has been shifted in the shifted alphebet"""
-        shifted_text = [chr(ord(text) + shift % 26 )]
+        shifted_text = [chr(ord(i) + shift % 26) for i in text]
+        shifted_text = ''.join(shifted_text)
 
         print(f"\nInput text : {text}")
         print(f"Result text: {shifted_text}")
 
 def decode(shift):
-        """It takes a word and the shift number but reverses the shift numbers so it goes backwards so it is decoding"""
         if mode == "decrypt":
             shift = -shift
 
         # It makes a new alphebet based on the og alphebet and the shift number to find every letter reversed by the shift number
-        shifted_word = [chr(ord(text) + shift % 26 )]
+        shifted_word = [chr(ord(i) + shift % 26) for i in text]
+        shifted_word = ''.join(shifted_word)
         
         print(f"\nInput text : {text}")
         print(f"Result text: {shifted_word}")
