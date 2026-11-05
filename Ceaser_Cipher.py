@@ -1,6 +1,9 @@
 # Caesar Cipher HC 1st
 
 # Gets if they want to encode or decode
+from ast import While
+
+
 while True:
         mode = input("Choose mode (encrypt/decrypt): ").strip().lower()
         if mode in ["encrypt", "decrypt"]:
@@ -22,29 +25,22 @@ def encode(shift):
         shifted_text = [chr(ord(i) + shift % 26) for i in text]
         shifted_text = ''.join(shifted_text)
 
-        print(f"\nInput text : {text}")
+        print(f"\nInput text: {text}")
         print(f"Result text: {shifted_text}")
 
 def decode(shift):
-        if mode == "decrypt":
-            shift = -shift
-
         # It makes a new alphebet based on the og alphebet and the shift number to find every letter reversed by the shift number
-        shifted_word = [chr(ord(i) + shift % 26) for i in text]
+        shifted_word = [chr(ord(i) - shift % 26) for i in text]
         shifted_word = ''.join(shifted_word)
         
-        print(f"\nInput text : {text}")
+        print(f"\nInput text: {text}")
         print(f"Result text: {shifted_word}")
 
 while True:
-
     # Uses the function neede based on what the user says the mode they want
     if mode == "encrypt":
         encode(shift)
+        break
     else:
         decode(shift)
-
-    # Asks if they want to restart the cipher to do it again and if they say anything except yes it will end the program/loop
-    run_again = input("Would you like to run the program again? (yes/no): ").strip().lower()
-    if run_again != "yes":
         break
