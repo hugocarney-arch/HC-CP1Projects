@@ -1,6 +1,6 @@
 # Caesar Cipher HC 1st
 
-# Gets if they want to encode or decode
+    # Gets which mode they want to use and makes sure they type it right
 while True:
         mode = input("Choose mode (encrypt/decrypt): ").strip().lower()
         if mode in ["encrypt", "decrypt"]:
@@ -16,35 +16,32 @@ while True:
             except ValueError:
                 print("Invalid Input shift value must be a whole number")
 
-text = input(f"What word do you want to {mode}:")
+text = input(f"What word do you want to {mode}: ")
 
 def encode(shift):
-        """It first makes a alphebet with all the letters in alphebet to that is shifted with the shift number then it makes it into a new dictionary thata lines up every letter in alphetbet with its match that has been shifted in the shifted alphebet"""
-        shifted_text = [chr(ord(text) + shift % 26 )]
+        """It makes a new word based on the og word and the shift number to find every letter shifted by the shift number"""
+        shifted_text = [chr(ord(i) + shift % 26) for i in text]
+        shifted_text = ''.join(shifted_text)
 
-        print(f"\nInput text : {text}")
+        print(f"\nInput text: {text}")
         print(f"Result text: {shifted_text}")
 
 def decode(shift):
-        """It takes a word and the shift number but reverses the shift numbers so it goes backwards so it is decoding"""
+        """It makes a new word based on the og word and the shift number to find every letter reversed by the shift number"""
         if mode == "decrypt":
             shift = -shift
 
-        # It makes a new alphebet based on the og alphebet and the shift number to find every letter reversed by the shift number
-        shifted_word = [chr(ord(text) + shift % 26 )]
+        shifted_word = [chr(ord(i) + shift % 26) for i in text]
+        shifted_word = ''.join(shifted_word)
         
-        print(f"\nInput text : {text}")
+        print(f"\nInput text: {text}")
         print(f"Result text: {shifted_word}")
 
 while True:
-
-    # Uses the function neede based on what the user says the mode they want
+     # Uses the function needed based on what the user says the mode they want
     if mode == "encrypt":
         encode(shift)
+        break
     else:
         decode(shift)
-
-    # Asks if they want to restart the cipher to do it again and if they say anything except yes it will end the program/loop
-    run_again = input("Would you like to run the program again? (yes/no): ").strip().lower()
-    if run_again != "yes":
         break
