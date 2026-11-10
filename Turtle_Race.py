@@ -3,7 +3,6 @@
 import random
 import turtle as t
 
-
 # Making the finish line with a invisible turtle
 endlineturtle = t.Turtle()
 endlineturtle.hideturtle()
@@ -21,25 +20,25 @@ turtle1.width(5)
 turtle2 = t.Turtle()
 turtle2.shape("turtle")
 turtle2.color("Red")
-turtle1.speed(100)
+turtle2.speed(100)
 turtle2.width(5)
 
 turtle3 = t.Turtle()
 turtle3.shape("turtle")
 turtle3.color("Green")
-turtle1.speed(100)
+turtle3.speed(100)
 turtle3.width(5)
 
 turtle4 = t.Turtle()
 turtle4.shape("turtle")
 turtle4.color("Yellow")
-turtle1.speed(100)
+turtle4.speed(100)
 turtle4.width(5)
 
 turtle5 = t.Turtle()
 turtle5.shape("turtle")
 turtle5.color("Purple")
-turtle1.speed(100)
+turtle5.speed(100)
 turtle5.width(5)
 
 # Makes function to hide selected turtle
