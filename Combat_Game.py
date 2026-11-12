@@ -1,5 +1,6 @@
 # HC Combat Game 1st
 
+import sys
 import random
 
 name = input("What's your name: ").strip().lower().capitalize()
@@ -10,9 +11,20 @@ if character_type not in [1, 2, 3]:
     exit()
 
 character = ["Archer", "Fighter", "Wizard"]
-monster_and_health_and_damage = [["Goblin", 30, 10], ["Orc", 50, 18], ["Dragon", 100, 25]]
-monster_choice = random.choice(monster_and_health_and_damage)
+monsters = ["Goblin", "Orc", "Dragon"]
+monster_choice = random.choice(monsters)
+if monster_choice == "Goblin":
+    monsters_health = 30
+    monsters_damage = 5
+elif monster_choice == "Orc":
+    monsters_health = 50
+    monsters_damage = 10
+elif monster_choice == "Dragon":
+    monsters_health = 100
+    monsters_damage = 15
 turn_order = 1
+
+print(monster_choice)
 
 if character_type == 1:
     health = 24
@@ -27,7 +39,7 @@ elif character_type == 2:
     damage = random.randint(1, 20) + 2
 elif character_type == 3:
     damage = random.randint(1, 20) + 6
-
+    
 wild_attack_damage = damage * 2
 
 defense_roll = random.randint(1, 8)
@@ -39,22 +51,26 @@ elif character_type == 2:
 elif character_type == 3:
     defense += 1
 
-def attack(monster_choice):
-        print(f"You rolled a {damage} to attack")
-        monster_choice[1] -= damage
-        print(f"The {monster_choice[0]} has {monster_choice[1]} health left")
-        if monster_choice[1] <= 0:
-            print(f"You have defeated the {monster_choice[0]}!")
+monsters_leftover_damage = monsters_damage - defense
 
-def wild_attack(monster_choice):
+def attack(monster_choice,):
+        print(f"You rolled a {damage} to attack")
+        monsters_health = monsters_health - damage
+        print(f"The {monster_choice} has {monsters_health} health left")
+        if monsters_health <= 0:
+            print(f"You have defeated the {monster_choice}")
+            sys.exit()
+
+def wild_attack(monster_choice,):
 
     print(f"You rolled a {damage} to wild attack which is doubled and becomes {wild_attack_damage} but you also take {damage} damage")
-    if wild_attack_damage >= monster_choice[2]:
-        print(f"You hit the {monster_choice[0]} for {wild_attack_damage} damage")
-        monster_choice[1] -= wild_attack_damage
-        print(f"The {monster_choice[0]} has {monster_choice[1]} health left")
-        if monster_choice[1] <= 0:
-            print(f"You have defeated the {monster_choice[0]}!")
+    if wild_attack_damage >= monsters_damage:
+        print(f"You hit the {monster_choice} for {wild_attack_damage} damage")
+        monsters_health = monsters_health - wild_attack_damage
+        print(f"The {monster_choice} has {monsters_health} health left")
+        if monsters_health <= 0:
+            print(f"You have defeated the {monster_choice}!")
+            sys.exit()
 
 def potion(character_type):
     if character_type == 1:
@@ -75,9 +91,6 @@ def run():
         print("You failed to run away")
 
 print(" ")
-
-print(f"You encounter a {monster_choice[0]} with {monster_choice[1]} health and {monster_choice[2]} damage and he challenges you to a battle first roll a D8 to see your defense")
-print(f"You rolled a {defense_roll} for your defense since you are a {character[character_type - 1]} you get a bonus of {defense - defense_roll} making your total defense {defense}")
 
 while True:
     if character_type == 1:
@@ -104,7 +117,7 @@ while True:
 
     print(" ")
 
-    print(f"You encounter a {monster_choice[0]} with {monster_choice[1]} health and {monster_choice[2]} damage and he challenges you to a battle first roll a D8 to see your defense")
+    print(f"You encounter a {monster_choice} with {monsters_health} health and {monsters_damage} damage and he challenges you to a battle first roll a D8 to see your defense")
     print(f"You rolled a {defense_roll} for your defense since you are a {character[character_type - 1]} you get a bonus of {defense - defense_roll} making your total defense {defense}")
 
     print(" ")
@@ -124,7 +137,6 @@ while True:
                 continue
 
             print(" ")
-                    
             if actions == 1:
                 attack(monster_choice)
                 continue
@@ -138,16 +150,24 @@ while True:
             elif actions == 4:
                 run()
                 continue
-
+            if monsters_health <= 0:
+                print(f"You have defeated the {monster_choice}")
+                sys.exit()
+            elif health <= 0:
+                print(f"You have been defeated by the {monster_choice}")
+                sys.exit()
             print(" ")
 
-        if turn_order == 2:
-            print(f"{monster_choice[0]}'s turn")
+        elif turn_order == 2:
+            print(f"{monster_choice}'s turn")
+            print(f"The {monster_choice} attacks you for {monsters_damage} damage")
+            health -= monsters_leftover_damage
+            print(f"You have {health} health left")
+            print(" ")
             turn_order -= 1
-            print(f"The {monster_choice[0]} attacks you for {monster_choice[2]} damage")
-            health -= monster_choice[2]
             if health <= 0:
-                print(f"You have been defeated by the {monster_choice[0]}")
-                break
-            else:
-                continue
+                print(f"You have been defeated by the {monster_choice}")
+                sys.exit()
+        else:
+            sys.exit()
+                
