@@ -1,5 +1,4 @@
 # HC Combat Game 1st
-
 import sys
 import random
 
@@ -41,13 +40,17 @@ elif character_type == 3:
 
 if monster_choice == "Goblin":
     monsters_health = 30
-    monsters_damage = 5
+    monsters_damage = 15
 elif monster_choice == "Orc":
     monsters_health = 50
-    monsters_damage = 10
+    monsters_damage = 25
 elif monster_choice == "Dragon":
     monsters_health = 100
-    monsters_damage = 15
+    monsters_damage = 35
+
+potion_amount = 2
+
+run_chance = random.randint(1, 2)
 
 monsters_leftover_damage = monsters_damage - defense
 
@@ -58,7 +61,6 @@ def attack(monster_choice, monsters_health, damage):
     if monsters_health < 0: 
         monsters_health = 0
     print(f"The {monster_choice} has {monsters_health} health left")
-    print(" ")
     if monsters_health <= 0:
         print(f"You have defeated the {monster_choice}")
         sys.exit()
@@ -75,26 +77,23 @@ def wild_attack(monster_choice, monsters_health, damage):
     if monsters_health < 0:
         monsters_health = 0
     print(f"The {monster_choice} has {monsters_health} health left")
-    print(" ")
     if monsters_health <= 0:
         print(f"You have defeated the {monster_choice}!")
         sys.exit()
 
-def potion(character_type):
-    if character_type == 1:
-        health = 24
-    elif character_type == 2:
-        health = 30
-    elif character_type == 3:
-        health = 18
+def potion(health):
+    potion_amount = 2
+    if potion_amount > 0:
+        health += 10
+        potion_amount -= 1
+        print(f"You drank a potion and now have {health} health")
+    else:
+        print("Sorry You are out of potions")
 
-    health += 9
-    print(f"You drank a potion and now have {health} health")
-
-def run():
-    chance = random.randint(1, 2)
-    if chance == 1:
+def run(run_chance):
+    if run_chance == 1:
         print("You successfully ran away")
+        sys.exit
     else:
         print("You failed to run away")
 
@@ -122,11 +121,11 @@ while True:
 
             print("")
 
-            print(f"To attack you will roll a D20 | To wild attack you will roll a D20 and it will double the damage but also take the original damage away from your health | If you choose potion you drink a potion to recover 9 health you only have two though| If you pick run you have a 50% chance to succsefully run away | If you check health it will take a turn")
+            print(f"To attack you will roll a D20 | To wild attack you will roll a D20 and it will double the damage but also take the original damage away from your health | If you choose potion you drink a potion to recover 9 health you only have two though| If you pick run you have a 50% chance to succsefully run away")
             print(" ")
-            actions = int(input("What do you want to do 1. Attack 2. Wild Attack 3. Drink Potion 4. Run 5. Ckeck Health: "))
+            actions = int(input("What do you want to do 1. Attack 2. Wild Attack 3. Drink Potion 4. Run: "))
             if actions not in [1, 2, 3, 4, 5]:
-                print("Invalid action Please choose 1, 2, 3, 4, or 5")
+                print("Invalid action Please choose 1, 2, 3 or 4")
                 continue
 
             print(" ")
@@ -141,20 +140,28 @@ while True:
             if actions == 1:
                 monsters_health = attack(monster_choice, monsters_health, damage)
                 print(f"You are at {health} health")
+                print(" ")
                 continue
             elif actions == 2:
                 health -= damage
                 monsters_health = wild_attack(monster_choice, monsters_health, damage)
                 print(f"You are at {health} health")
+                print(" ")
+                if health <= 0:
+                    print("Sorry you have taked too much damage from wild attack you have died")
+                    health = 0
                 continue
             elif actions == 3:
-                potion(character_type)
+                potion(health)
+                if potion_amount > 0:
+                    health += 10
                 print(f"You are at {health} health")
+                print(" ")
                 continue
             elif actions == 4:
-                run()
-                print(f"You are at {health} health")
-                continue
+                run(run_chance)
+                if run_chance == 1:
+                    sys.exit()
             if monsters_health <= 0:
                 print(f"You have defeated the {monster_choice}")
                 sys.exit()
@@ -167,6 +174,9 @@ while True:
             print(f"{monster_choice}'s turn")
             print(f"The {monster_choice} attacks you for {monsters_damage} damage")
             health -= monsters_leftover_damage
+            print(f"Your defense takes {defense} damage from their attack leaving {monsters_leftover_damage} damage")
+            if health < 0: 
+                health = 0
             print(f"You have {health} health left")
             print(" ")
             turn_order -= 1
