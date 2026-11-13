@@ -27,7 +27,7 @@ elif character_type == 2:
 elif character_type == 3:
     damage = random.randint(1, 20) + 6
     
-turn_order = 1
+turn_order = random.randint(1, 2)
 
 defense_roll = random.randint(1, 8)
 defense = defense_roll
@@ -40,13 +40,13 @@ elif character_type == 3:
 
 if monster_choice == "Goblin":
     monsters_health = 30
-    monsters_damage = 15
+    monsters_damage = 1
 elif monster_choice == "Orc":
     monsters_health = 50
-    monsters_damage = 25
+    monsters_damage = 2
 elif monster_choice == "Dragon":
-    monsters_health = 100
-    monsters_damage = 35
+    monsters_health = 75
+    monsters_damage = 3
 
 potion_amount = 2
 
@@ -80,20 +80,18 @@ def wild_attack(monster_choice, monsters_health, damage):
     if monsters_health <= 0:
         print(f"You have defeated the {monster_choice}!")
         sys.exit()
-
-def potion(health):
-    potion_amount = 2
-    if potion_amount > 0:
-        health += 10
-        potion_amount -= 1
-        print(f"You drank a potion and now have {health} health")
     else:
-        print("Sorry You are out of potions")
+        return monsters_health
+
+def potion(health, potion_amount):
+    health += 10
+    print(f"You drank a potion and now have {health} health")
+    return health
 
 def run(run_chance):
     if run_chance == 1:
         print("You successfully ran away")
-        sys.exit
+        sys.exit()
     else:
         print("You failed to run away")
 
@@ -152,9 +150,11 @@ while True:
                     health = 0
                 continue
             elif actions == 3:
-                potion(health)
                 if potion_amount > 0:
-                    health += 10
+                    health = potion(health)
+                    potion_amount -= 1
+                else:
+                    print("You have no potions left")
                 print(f"You are at {health} health")
                 print(" ")
                 continue
