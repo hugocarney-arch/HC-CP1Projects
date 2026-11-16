@@ -33,3 +33,17 @@ print(" ")
 print("Drink Options:")
 print(*menu["Drink"])
 print(" ")
+
+while True:
+    main_pick = input("What Main Course Do You Want (Pick 1): ")
+    if main_pick in["Burger", "Chicken Nugget", "Corn Dog", "Nachos"]:
+        break
+    else:
+        ("Invalid Input Please Pick From Menu")
+        continue
+
+side1_pick = input("What 1st Side Do You Want (Pick 1): ")
+
+side2_pick = input("What 2nd Side Do You Want (Pick 1): ")
+
+drink_pick = input("What Main Course Do You Want (Pick 1): ")
