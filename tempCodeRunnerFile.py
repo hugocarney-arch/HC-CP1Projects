@@ -1,5 +1,1 @@
-
-                potion(character_type)
-                print(f"You are at {health} health")
-                continue
-            elif actions == 4:
+What operation would you like to perform sum, average, max, min, product: 
