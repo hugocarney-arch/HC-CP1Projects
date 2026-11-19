@@ -1,5 +1,5 @@
 import time
 
 while True:
-    print("67 Tung Tung Tung Sahur", end=" ")
-    time.sleep(.01)
+    print("67", end=" ")
+    time.sleep(.0001)
