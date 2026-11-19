@@ -1,4 +1,5 @@
 # HC Flexible Calc 1st
+import math
 
 def get_math_type(question, *math_type):
     while True:
