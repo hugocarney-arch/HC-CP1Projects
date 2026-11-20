@@ -7,37 +7,39 @@ def get_math_type(question, *math_type):
         if math_type_choice in math_type:
             return math_type_choice
         else:
-            print("Invalid Input Please Pick From Options And Spell How Spelled In Options")
-            continue
-
-math_type_choice = get_math_type("What operation would you like to perform sum, average, max, min, product: ", "sum", "average", "max", "sum", "average", "max", "min", "product")
+            print("Invalid input Please pick from the options and spell how spelled on the options ")
 
 def get_numbers():
-    print("It will ask you for a number and type any letter or word when you finished adding user_numbers")
-    user_numbers = []
-    
+    print("Enter a number when prompted, or type 'done' when finished adding numbers.")
+    numbers = []
     while True:
-        try:
-            user_input = int(input("What number do you want to calculate: "))
-            user_numbers.append(user_input)
-        except ValueError:
+        user_input = input("What number do you want to calculate: ").strip().lower()
+        if user_input == "done":
             break
-            
-    return user_numbers
+        try:
+            numbers.append(float(user_input))
+        except ValueError:
+            print("Invalid input Please enter a valid number or type any letter")
+    return numbers
+
+def calculate(operation, *numbers):
+    if operation == "sum":
+        return sum(numbers)
+    elif operation == "average":
+        return sum(numbers) / len(numbers)
+    elif operation == "max":
+        return max(numbers)
+    elif operation == "min":
+        return min(numbers)
+    elif operation == "product":
+        return math.prod(numbers)
+
+math_type_choice = get_math_type("What operation would you like to perform (sum, average, max, min, product): ", "sum", "average", "max", "min", "product")
 
 user_numbers = get_numbers()
 
 if len(user_numbers) == 0:
-    print("No user_numbers were entered.")
-elif math_type_choice == "sum":
-    print("Sum:", sum(user_numbers))
-elif math_type_choice == "average":
-    print("Average:", sum(user_numbers) / len(user_numbers))
-elif math_type_choice == "max":
-    print("Max:", max(user_numbers))
-elif math_type_choice == "min":
-    print("Min:", min(user_numbers))
-elif math_type_choice == "product":
-    print("Product:", math.prod(user_numbers))
-    
-
+    print("Invalid Input No numbers were entered")
+else:
+    result = calculate(math_type_choice, *user_numbers)
+    print(f"{math_type_choice}: {result}")
