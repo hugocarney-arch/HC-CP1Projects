@@ -10,7 +10,7 @@ def get_math_type(question, *math_type):
             print("Invalid input Please pick from the options and spell how spelled on the options ")
 
 def get_numbers():
-    print("Enter a number when asked then type any letter when finished adding numbers")
+    print("Enter a number when asked then type done when finished adding numbers")
     numbers = []
     while True:
         user_input = input("What number do you want to calculate: ").strip().lower()
